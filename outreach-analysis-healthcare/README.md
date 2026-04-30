@@ -33,8 +33,9 @@ The project is subdivided into 3 pain parts:
 Tech stack: Python (Pandas, Matplotlib, Seaborn, NumPy), Jupyter notebook.
 
 ## **Data Validation and Cleaning**
-[Initial dataframe]():
-[Cleaned dataframe]():
+- [Initial dataframe](https://github.com/elenaEro/data-analyst-porfolio/blob/main/outreach-analysis-healthcare/assets/initial_df_outreach.png):
+- [Cleaned dataframe](https://github.com/elenaEro/data-analyst-porfolio/blob/main/outreach-analysis-healthcare/assets/cleaned_df_outreach.png):
+
 After a quick investigation, we can see that all the columns are object-type. Also, the data frame consists of duplicate rows where values in each and every column are identical.
 
 First step, I deleted all the duplicates.
@@ -63,16 +64,17 @@ Unique values of reached_ind: ['0.0' nan '1.0' '1 and reached']. To standardise 
 
 **North-star metrics for this project**:
 
-- **Patient-Level Compliance Rate**: all completed screening by patient/total eligible screening for patient; metric ranges from 0 to 1, and we will look at whether different treatments change the compliance rate for different groups of patients.
-- **Outreach Uplift**: the difference in compliance rate between reached and not reached patients;
-- **Fully-compliant patients**(total, percentage); this metric supports the first one and helps to analyse the compliance level on the behavioural level. 
 - **Reach rate**: total successful calls(when patient was reached)/total call attempts; this metric will help to evaluate time/money spent on the outreach company.
+- **Outreach Uplift**: the difference in compliance rate between reached and not reached patients;
+- **Patient-Level Compliance Rate**: all completed screening by patient/total eligible screening for patient; metric ranges from 0 to 1, and we will look at whether different treatments change the compliance rate for different groups of patients.
+- **Fully-compliant patients**(total, percentage); this metric supports the first one and helps to analyse the compliance level on the behavioural level. 
+
 
 In some cases, we will also use a supportive metric:
 - **Screening-Level Compliance rate**: total finished screenings/total evaluable screenings in per cent;
 
 
-**EDA**
+## **EDA**
 
 ### How data was collected
 
@@ -82,13 +84,21 @@ The cases where the screening_date was earlier than the latest_call_date are not
 
 ### How patients were assigned to the screenings
 
-The patients were assigned to different screening types in different proportions: the most significant group consists of 78 patients for colorectal cancer (COL), which is approximately twice as large as the three other groups — bowel cancer (BCS), controlling high blood pressure (CBP), and early elective delivery prevention (EED), each containing around 40 patients. There are only 6 patients in the osteoporosis management in women (OMW) group, which is notably small and may limit the reliability of any conclusions drawn from this group.
-
-These imbalances in group sizes can significantly affect the compliance rate and patient behaviour. For example, cancer-related screenings tend to generate higher levels of patient anxiety, which may influence compliance differently compared to non-cancer screenings. Also, the amount of total calls made(t_calls) and screenings available (scr_av) is higher for colorectal cancer and has the highest impact on the data.
-
-
+The patients were assigned to different screening types in different proportions: the most significant group consists of 78 patients for colorectal cancer (COL), which is approximately twice as large as the three other groups — bowel cancer (BCS), controlling high blood pressure (CBP), and early elective delivery prevention (EED), each containing around 40 patients. There are only 6 patients in the osteoporosis management in women (OMW) group, which is notably small and may limit the reliability of any conclusions drawn from this group. 
 The number of available screenings per patient varies across groups, ranging from approximately 2.17 to 2.78 screenings per patient.
-It is also noteworthy that groups with a higher reach rate tend to have fewer calls per person (call_per_p); this pattern requires further statistical testing before concluding.
+
+![patients screenings per screening type](assets/patients_screenings_per_screening_type.png)
+
+These imbalances in group sizes can significantly affect the compliance rate and patient behaviour. For example, cancer-related screenings tend to generate higher levels of patient anxiety, which may influence compliance differently compared to non-cancer screenings. 
+
+
+Also, the amount of total calls made(t_calls) and screenings available (scr_av) is higher for colorectal cancer and has the highest impact on the data.
+
+![hist screenings calls per screening type](assets/hist_screenings_calls_per_screening_type.png)
+
+The reach rate differs depending on the screening type, from 0.52 to 0.74. It is also noteworthy that groups with a higher reach rate tend to have fewer calls per person (call_per_p); this pattern requires further statistical testing before concluding.
+
+![outreach per screening type](assets/outreach_per_screening_type.png)
 
 ### Distribution of screenings per patient
 
@@ -97,15 +107,20 @@ The eligible screening for one particular patient could vary from 1 to 19. Keepi
 
 This raises the question about the optimal number of screenings eligible per patient.
 
+![Distribution of screenings](assets/Distribution_of_screenings.png)
+
 ### Were there patients who were assigned for the same screening several times and didn't complete it?
 
-18 patients were assigned and didn't complete the same screening at least 2 times
-overall there were 41 cases when a patient was assigned and didn't complete the same screening type. I tactually means that each of the 18 patients were assigned at average to 2 different screenings and they weren't completed non of them.
+18 patients were assigned and didn't complete the same screening at least 2 times. 
+Overall, there were 41 cases when a patient was assigned and didn't complete the same screening type. I tactually means that each of the 18 patients was assigned an average of 2 different screenings, and none of them was completed.
 
 ### How was the outreach designed
 
 To analyse the style of outreach, the days between the outreach call and the screening were calculated for each screening.
 The interval varies from 1 to 351 days (almost a year). 25% were contacted within 2 weeks before the screening, half of the patients were contacted up to 40 days before the screening, and the other half from 40 to 351 days prior. In terms of common sense, it may be worth fixing the interval between last call and the screening date for up to 30-40 days as people tend to forget about the information for such a long time.
+
+![Distribution days between call screening](assets/Distribution_days_between_call_screening.png)
+
 
 ### Reach rate and outreach uplift
 
