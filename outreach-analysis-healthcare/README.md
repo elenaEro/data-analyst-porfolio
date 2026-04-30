@@ -1,11 +1,14 @@
-# ANALYSIS OF NURSE OUTREACH CAMPAIGN
+# NURSE OUTREACH CAMPAIGN
 
-About Universal Healthy Humans Company:   As a partially government-funded healthcare company, Universal Healthy Humans Company (UHHC) is accountable for the screening compliance rate of its customers. To support customers in completing required annual healthcare screenings, UHHC operates an outbound call centre staffed by nurses who are tasked with making contact with customers who have not completed their required screenings and supporting them in understanding the importance of and gaining access to resources to complete their screenings. Preventive Screening Outreach via Phone Our clinic runs a targeted outreach initiative to boost participation in preventive health screenings for patients over the age of 50. While digital and print communications have their place, we focused exclusively on personal phone calls to increase patient engagement and trust. The initiative prioritised five critical screening areas: bowel cancer (BCS), colorectal cancer (COL), controlling high blood pressure (CBP), osteoporosis management in women (OMW), and early elective delivery prevention (EED). 
+About Universal Healthy Humans Company:   As a partially government-funded healthcare company, Universal Healthy Humans Company (UHHC) is accountable for the screening compliance rate of its customers. To support customers in completing required annual healthcare screenings, UHHC operates an outbound call centre staffed by nurses who are tasked with making contact with customers who have not completed their required screenings and supporting them in understanding the importance of and gaining access to resources to complete their screenings. Preventive Screening Outreach via Phone Our clinic runs a targeted outreach initiative to boost participation in preventive health screenings for patients over the age of 50. While digital and print communications have their place, we focused exclusively on personal phone calls to increase patient engagement and trust. 
+
+The initiative prioritised five critical screening areas: 
+bowel cancer (BCS), colorectal cancer (COL), controlling high blood pressure (CBP), osteoporosis management in women (OMW), and early elective delivery prevention (EED). 
 
 A member of the clinical staff called each patient to: 
-● Explain why the screening was recommended 
-● Address any concerns or misconceptions 
-● Help schedule necessary appointments or follow-ups 
+- Explain why the screening was recommended 
+- Address any concerns or misconceptions 
+- Help schedule necessary appointments or follow-ups 
 
 Each call lasted approximately 15 to 20 minutes, allowing time for a two-way conversation and ensuring the patient felt informed and supported.
 
@@ -66,7 +69,50 @@ Unique values of reached_ind: ['0.0' nan '1.0' '1 and reached']. To standardise 
 - **Reach rate**: total successful calls(when patient was reached)/total call attempts; this metric will help to evaluate time/money spent on the outreach company.
 
 In some cases, we will also use a supportive metric:
-- Screening-Level Compliance rate: total finished screenings/total evaluable screenings in per cent;
+- **Screening-Level Compliance rate**: total finished screenings/total evaluable screenings in per cent;
+
+
+**EDA**
+
+### How data was collected
+
+Screening period: 2024-02-04 00:00:00 to 2025-01-13 00:00:00
+Call period: 2024-01-01 00:00:00 to 2024-12-16 00:00:00
+The cases where the screening_date was earlier than the latest_call_date are not found.
+
+### How patients were assigned to the screenings
+
+The patients were assigned to different screening types in different proportions: the most significant group consists of 78 patients for colorectal cancer (COL), which is approximately twice as large as the three other groups — bowel cancer (BCS), controlling high blood pressure (CBP), and early elective delivery prevention (EED), each containing around 40 patients. There are only 6 patients in the osteoporosis management in women (OMW) group, which is notably small and may limit the reliability of any conclusions drawn from this group.
+
+These imbalances in group sizes can significantly affect the compliance rate and patient behaviour. For example, cancer-related screenings tend to generate higher levels of patient anxiety, which may influence compliance differently compared to non-cancer screenings. Also, the amount of total calls made(t_calls) and screenings available (scr_av) is higher for colorectal cancer and has the highest impact on the data.
+
+
+The number of available screenings per patient varies across groups, ranging from approximately 2.17 to 2.78 screenings per patient.
+It is also noteworthy that groups with a higher reach rate tend to have fewer calls per person (call_per_p); this pattern requires further statistical testing before concluding.
+
+### Distribution of screenings per patient
+
+After aggregating data on the patient level, we see that there were a total of 80 patients in the outreach program. 
+The eligible screening for one particular patient could vary from 1 to 19. Keeping in mind that the screening period was around 12 months, it is 1-2 screenings each month for the whole year. Half of the patients were eligible for up to 4 screenings within 1 year, and 75% patients for up to 6.5 screenings.
+
+This raises the question about the optimal number of screenings eligible per patient.
+
+### Were there patients who were assigned for the same screening several times and didn't complete it?
+
+18 patients were assigned and didn't complete the same screening at least 2 times
+overall there were 41 cases when a patient was assigned and didn't complete the same screening type. I tactually means that each of the 18 patients were assigned at average to 2 different screenings and they weren't completed non of them.
+
+### How was the outreach designed
+
+To analyse the style of outreach, the days between the outreach call and the screening were calculated for each screening.
+The interval varies from 1 to 351 days (almost a year). 25% were contacted within 2 weeks before the screening, half of the patients were contacted up to 40 days before the screening, and the other half from 40 to 351 days prior. In terms of common sense, it may be worth fixing the interval between last call and the screening date for up to 30-40 days as people tend to forget about the information for such a long time.
+
+### Reach rate and outreach uplift
+
+
+
+
+
 
 
 
