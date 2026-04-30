@@ -25,7 +25,7 @@ The Outbound Call Nurse team has provided some data about their phone call activ
 
 The data hasn’t been validated.
 
-The project is subdivided into 3 pain parts:
+The project is subdivided into 3 main parts:
 - data cleaning and validation
 - EDA
 - Summary and business recommendations
@@ -33,8 +33,8 @@ The project is subdivided into 3 pain parts:
 Tech stack: Python (Pandas, Matplotlib, Seaborn, NumPy), Jupyter notebook.
 
 ## **Data Validation and Cleaning**
-- [Initial dataframe](https://github.com/elenaEro/data-analyst-porfolio/blob/main/outreach-analysis-healthcare/assets/initial_df_outreach.png):
-- [Cleaned dataframe](https://github.com/elenaEro/data-analyst-porfolio/blob/main/outreach-analysis-healthcare/assets/cleaned_df_outreach.png):
+- [Initial dataframe](https://github.com/elenaEro/data-analyst-porfolio/blob/main/outreach-analysis-healthcare/assets/initial_df_outreach.png)
+- [Cleaned dataframe](https://github.com/elenaEro/data-analyst-porfolio/blob/main/outreach-analysis-healthcare/assets/cleaned_df_outreach.png)
 
 After a quick investigation, we can see that all the columns are object-type. Also, the data frame consists of duplicate rows where values in each and every column are identical.
 
@@ -123,6 +123,13 @@ The interval varies from 1 to 351 days (almost a year). 25% were contacted withi
 
 
 ### Reach rate and outreach uplift
+
+Out of 80 targeted patients 56 were reached at least once,
+total reached patients 56
+Reach rate: 70.0% of all targeted patients were reached at least once
+Based on current data:
+Reach rate=64.37%, these are 280 successful calls. It varies depending on the type of screening type from 52 to 74%
+This means that up to half of efforts were unsuccessfull for nurse teams.
 
 
 
