@@ -29,7 +29,7 @@ The project is subdivided into 3 pain parts:
 
 Tech stack: Python (Pandas, Matplotlib, Seaborn, NumPy), Jupyter notebook.
 
-##**Data Validation and Cleaning**
+## **Data Validation and Cleaning**
 [Initial dataframe]():
 [Cleaned dataframe]():
 After a quick investigation, we can see that all the columns are object-type. Also, the data frame consists of duplicate rows where values in each and every column are identical.
@@ -56,17 +56,17 @@ Column 'reached_ind':
 
 Unique values of reached_ind: ['0.0' nan '1.0' '1 and reached']. To standardise values and convert them into a boolean data type, I used a custom function, which mapped '1.0', '1 and reached' values to True, '0.0' to False and kept NA in the dataframe as we'll use them to calculate business metrics.
 
-##**North-star metrics and EDA**:
+## **North-star metrics and EDA**:
 
 **North-star metrics for this project**:
 
-- **Patient-Level Compliance Rate**: all completed screening by patient/total eligible screening for patient; metric ranges from 0 to 1, and we will look if different treatments change the compliance rate for different groups of patients.
+- **Patient-Level Compliance Rate**: all completed screening by patient/total eligible screening for patient; metric ranges from 0 to 1, and we will look at whether different treatments change the compliance rate for different groups of patients.
 - **Outreach Uplift**: the difference in compliance rate between reached and not reached patients;
 - **Fully-compliant patients**(total, percentage); this metric supports the first one and helps to analyse the compliance level on the behavioural level. 
 - **Reach rate**: total successful calls(when patient was reached)/total call attempts; this metric will help to evaluate time/money spent on the outreach company.
 
 In some cases, we will also use a supportive metric:
--Screening-Level Compliance rate: total finished screenings/total evaluable screenings in per cent;
+- Screening-Level Compliance rate: total finished screenings/total evaluable screenings in per cent;
 
 
 
