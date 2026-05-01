@@ -187,6 +187,27 @@ Across all four approaches, no statistically significant difference was found be
 
 ### Days between last call and screening
 
+Based on the data distribution, four time bins were defined to reflect meaningful intervals: 0-14 days(25th percentile), 15-40 days(50th), 41-90 days(75th), and 90+ days before the screening.
+
+Compliance rates by time bin were as follows:
+0-14 days  64.3%
+15-40 days 78.7%
+41-90 days 60.0%
+90+ days 65.7%
+
+![days_between](assets/Days_between_comliance.png)
+
+A Chi-square test found **no statistically significant difference** in compliance across time bins (chi-square = 8.84, p = 0.065). 
+However, the result approaches significance, and the pattern is notable. 
+Patients called **15-40 days** before their screening showed the highest compliance rate (78.7%), with a standardised residual of -2.03 for non-compliant patients. Tjis is the only residual approaching the significance threshold of 2, indicating that this group had meaningfully fewer non-completions than expected.
+
+The 41-90 day group showed the opposite trend, with the lowest compliance rate (60.0%), suggesting that calls made too far in advance may be counterproductive, as patients are likely to forget both the call and the upcoming screening.
+
+While the overall result does not reach statistical significance, the directional pattern is consistent and practically meaningful. Combined with the observation that the largest group (140 patients, 32% of all calls) were contacted more than 90 days before their screening, this suggests that standardising outreach calls to within 15-40 days of the screening date could be a low-cost and actionable intervention worth testing in a redesigned study.
+
+## SUMMARY AND BUSINESS RECOMMENDATIONS
+
+
 
 
 
