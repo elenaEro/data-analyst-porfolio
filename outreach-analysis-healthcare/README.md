@@ -121,17 +121,47 @@ The interval varies from 1 to 351 days (almost a year). 25% were contacted withi
 
 ![Distribution days between call screening](assets/Distribution_days_between_call_screening.png)
 
+A Chi-square test of independence (χ² = 65.04, p < 0.0001) confirms that **the day of the week when patients are contacted** has a statistically significant effect on the **reach rate**.
 
-### Reach rate and outreach uplift
+Analysis of the standardised residuals identifies **Thursday and Monday** as the strongest contributors to this effect:
 
-Out of 80 targeted patients 56 were reached at least once,
-total reached patients 56
-Reach rate: 70.0% of all targeted patients were reached at least once
-Based on current data:
-Reach rate=64.37%, these are 280 successful calls. It varies depending on the type of screening type from 52 to 74%
-This means that up to half of efforts were unsuccessfull for nurse teams.
+**Thursday** shows the largest deviation from expected values (residuals: succ_calls = -3.07, unsucc_calls = +4.12), indicating significantly fewer successful calls and more unsuccessful calls than expected. With only a 33.8% reach rate across 65 calls, Thursday is clearly the worst day for outreach.
+**Monday** shows the opposite pattern (residuals: succ_calls = +2.11, unsucc_calls = -2.84), with a 86.4% reach rate, making it the most effective day for outreach. Both residuals cross the significance threshold of 2.
+**Wednesday** shows a similar positive pattern to Monday (reach rate 84.4%), with residuals just below the threshold of 2 (1.99 and -2.68), suggesting a strong but marginally significant trend.
+**Tuesday** shows a negative trend (reach rate 44.4%) with residuals of -1.67 and +2.24 — the unsuccessful calls residual crosses the threshold, indicating more unsuccessful calls than expected.
+Friday and Saturday show moderate positive reach rates (81.8% and 73.7%) but residuals below 2, so no statistically notable deviation.
+Sunday has the highest call volume (131 calls) but a moderate reach rate of 59.5%, with residuals close to zero — performing broadly as expected.
+
+### Reach rate
+
+The outreach campaign targeted **80 unique patients**, of whom **56 (70%)** were successfully reached at least once.
+
+At the call level, the overall **reach rate was 64.37%**, representing 280 successful calls out of all call attempts. 
+**This rate varies significantly across screening types, ranging from 52% (BCS) to 74% (EED)**, indicating that outreach effectiveness is not uniform across different screening programmes.
+This means that on average, **approximately 1 in 3 calls** did not result in successful patient contact, representing a **considerable proportion of nurse time and resources** spent on unsuccessful attempts.
+
+To evaluate whether the reach rate differed significantly across screening types, a Chi-square test of independence was applied to the contingency table of successful and unsuccessful calls per screening type. This test was chosen because the outcome variable (reached/not reached) is binary, and we are comparing proportions across multiple independent groups with unequal sample sizes. The OMW group was excluded from this analysis due to an insufficient sample size (7 successful, 4 unsuccessful calls), which violates the Chi-square assumption of at least 5 observations per cell.
+
+The test returned a chi-square statistic of 12.75 and a p-value of 0.0052, which is well below the 0.05 significance threshold. This indicates that the differences in reach rate across screening types are statistically significant and are unlikely to be due to chance.
+
+To identify which screening types contributed most to this result, standardised residuals were analysed. Residuals with an absolute value above 2 are considered statistically notable. The analysis revealed two main contributors:
+
+**BCS (Bowel Cancer Screening)** showed **fewer successful calls and more unsuccessful calls** than expected, indicating a consistently lower-than-average reach rate. This group is **the most problematic from an outreach perspective** and may require a revised contact strategy. Logging in the time of calls also may help to analyse the most effective tactics for outreach campaign.
+**EED (Early Elective Delivery)** showed a positive trend in reach rate: **more successful calls and fewer unsuccessful calls** than expected; however, with residuals of 1.09 and -1.46, both below the significance threshold of 2, this pattern is not statistically confirmed and should be treated as a weak trend only. More data collection is recommended.
+
+**CBP and COL** showed residuals close to zero, suggesting their reach rates are broadly in line with the overall average and do not deviate significantly from what would be expected.
+
+### Reach rate buy day of the call and the screening type
 
 
+
+
+
+Zooming into the heatmap for BCS specifically:
+Thursday's reach rate drops to just 13% — extremely low
+Tuesday's reach rate is 33% — also notably poor
+
+**Both align with the overall pattern but are more pronounced in BCS than other screening types**.
 
 
 
