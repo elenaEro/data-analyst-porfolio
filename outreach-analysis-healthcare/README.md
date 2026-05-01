@@ -125,12 +125,11 @@ A Chi-square test of independence (χ² = 65.04, p < 0.0001) confirms that **the
 
 Analysis of the standardised residuals identifies **Thursday and Monday** as the strongest contributors to this effect:
 
-**Thursday** shows the largest deviation from expected values (residuals: succ_calls = -3.07, unsucc_calls = +4.12), indicating significantly fewer successful calls and more unsuccessful calls than expected. With only a 33.8% reach rate across 65 calls, Thursday is clearly the worst day for outreach.
-**Monday** shows the opposite pattern (residuals: succ_calls = +2.11, unsucc_calls = -2.84), with a 86.4% reach rate, making it the most effective day for outreach. Both residuals cross the significance threshold of 2.
-**Wednesday** shows a similar positive pattern to Monday (reach rate 84.4%), with residuals just below the threshold of 2 (1.99 and -2.68), suggesting a strong but marginally significant trend.
-**Tuesday** shows a negative trend (reach rate 44.4%) with residuals of -1.67 and +2.24 — the unsuccessful calls residual crosses the threshold, indicating more unsuccessful calls than expected.
-Friday and Saturday show moderate positive reach rates (81.8% and 73.7%) but residuals below 2, so no statistically notable deviation.
-Sunday has the highest call volume (131 calls) but a moderate reach rate of 59.5%, with residuals close to zero — performing broadly as expected.
+- **Thursday** shows the largest deviation from expected values (residuals: succ_calls = -3.07, unsucc_calls = +4.12), indicating significantly fewer successful calls and more unsuccessful calls than expected. With only a 33.8% reach rate across 65 calls, Thursday is clearly the worst day for outreach.
+- **Monday** shows the opposite pattern (residuals: succ_calls = +2.11, unsucc_calls = -2.84), with a 86.4% reach rate, making it the most effective day for outreach. Both residuals cross the significance threshold of 2.
+- **Wednesday** shows a similar positive pattern to Monday (reach rate 84.4%), with residuals just below the threshold of 2 (1.99 and -2.68), suggesting a strong but marginally significant trend.
+- **Tuesday** shows a negative trend (reach rate 44.4%) with residuals of -1.67 and +2.24 — the unsuccessful calls residual crosses the threshold, indicating more unsuccessful calls than expected.
+- Friday and Saturday show moderate positive reach rates (81.8% and 73.7%) but residuals below 2, so no statistically notable deviation. Sunday has the highest call volume (131 calls) but a moderate reach rate of 59.5%, with residuals close to zero — performing broadly as expected.
 
 ### Reach rate
 
@@ -151,17 +150,18 @@ To identify which screening types contributed most to this result, standardised 
 
 **CBP and COL** showed residuals close to zero, suggesting their reach rates are broadly in line with the overall average and do not deviate significantly from what would be expected.
 
-### Reach rate buy day of the call and the screening type
+### Reach rate by day of the call and the screening type
 
-
-
-
-
-Zooming into the heatmap for BCS specifically:
+Zooming into the heatmap on differences in reach rate among different week days and different screening types for BCS specifically:
 Thursday's reach rate drops to just 13% — extremely low
 Tuesday's reach rate is 33% — also notably poor
 
-**Both align with the overall pattern but are more pronounced in BCS than other screening types**.
+**Both align with the overall pattern but are more pronounced in BCS than other screening types**. This supports the hypothesis that the choice of the reach day aligned with the poor outreach rate.
+![Heatmap](assets/Reach_rate_by_wday_screening_type.png)
+
+
+
+
 
 
 
