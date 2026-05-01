@@ -159,10 +159,33 @@ Tuesday's reach rate is 33% — also notably poor
 **Both align with the overall pattern but are more pronounced in BCS than other screening types**. This supports the hypothesis that the choice of the reach day aligned with the poor outreach rate.
 ![Heatmap](assets/Reach_rate_by_wday_screening_type.png)
 
+### Compliance rate and fully-compliant patients
 
+At the patient level, the mean compliance rate across all 80 targeted patients was 67.6%. There were 37 fully-compliant patients overall.
 
+The distribution of compliance rates is bimodal. Patients clustered predominantly at either 0.5 or 1.0, with very few values in between.
 
+![Compliance rate](assets/Compliance_rate_distribution.png)
+This discrete pattern is likely driven by two factors identified during data cleaning:
+- Patients were repeatedly scheduled for the same screening types. 
+18 patients had multiple incomplete records for the same screening types, meaning they were assigned the same screening several times and did not attend all appointments. Patients scheduled multiple times but attending only some appointments naturally produce mid-range compliance values around 0.5.
+Patients who completed all their assigned appointments, regardless of how many times they were scheduled, cluster at 1.0, representing fully compliant behaviour.
 
+This bimodal distribution was visually confirmed as non-normal, which informed the choice of non-parametric testing for all subsequent statistical comparisons of compliance rates between groups.
+
+### Reached vs not reached patients:
+
+To evaluate whether nurse outreach influenced full compliance, statistical comparisons were conducted at two 
+Overall comparison across all screening types was run using a Chi-square test on the contingency table of reached/not reached vs compliant/not compliant patients. Second, to account for potential differences between screening types, the same comparison was repeated within each screening type separately (BCS, CBP, COL, EED), with OMW excluded due to insufficient cell counts. Bonferroni correction was applied across the four screening types (adjusted α = 0.0125) to control for multiple comparisons.
+Results: No statistically significant difference in full compliance was found between reached and not reached patients — neither at the overall level nor within any individual screening type after Bonferroni correction. This is consistent with the compliance rate findings in Section 1 and further supports the conclusion that the current outreach approach did not drive meaningful behavioural change in this dataset.
+
+### Did outreach improve compliance?
+
+To answer this question robustly, compliance was measured in four different ways: at patient level and at individual screening appointment level, both as a continuous rate and as a binary fully compliant flag, comparing reached and not reached patients within each screening type. The OMW group was excluded due to small sample size. Statistical significance was assessed using Chi-square and Mann-Whitney U tests with Bonferroni correction applied across four screening types.
+
+Across all four approaches, no statistically significant difference was found between patients who were reached by the nurse team and those who were not. This consistent result across multiple analytical methods strengthens the conclusion: **the current outreach campaign did not produce a measurable improvement in screening compliance**.
+
+### Days between last call and screening
 
 
 
