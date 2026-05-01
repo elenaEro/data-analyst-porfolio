@@ -207,8 +207,47 @@ While the overall result does not reach statistical significance, the directiona
 
 ## SUMMARY AND BUSINESS RECOMMENDATIONS
 
+## Key Findings
 
+The analysis evaluated the effectiveness of UHHC's nurse outreach campaign across five screening types over a 12-month period. 
+The campaign targeted 80 unique patients, making 435 screening appointments with a total of 280 successful calls (overall reach rate 64.37%).
+Despite the considerable effort invested, the central finding of this analysis is that nurse outreach did not produce a measurable improvement in screening compliance. 
 
+This conclusion holds across four separate analytical approaches: patient-level compliance rate, fully compliant patient flag, screening-level compliance rate, and compliance by screening type. There were no significant outreach uplift. All results were statistically non-significant after Bonferroni correction.
+
+However, the analysis identified several actionable patterns that suggest the campaign's design, rather than the concept itself, may be limiting its effectiveness.
+
+## Recommendation 1: Reschedule calls to 15-40 days before screening
+The strongest signal in the entire dataset is the compliance rate of 78.7% for patients called 15-40 days before their screening, compared to 60-65% for all other time windows. The standardised residual of -2.03 for non-compliant patients in this group is the only result approaching statistical significance in the timing analysis (chi-square = 8.84, p = 0.065).
+Currently, 32% of all calls are made more than 90 days before the screening, far too early to serve as an effective reminder. Restructuring the call scheduling to target the 15-40 day window before each patient's screening date is a low-cost intervention with the strongest evidence base in this dataset.
+
+## Recommendation 2: Avoid Thursday and Tuesday, prioritise Monday and Wednesday for outreach calls
+The day of the week has a statistically significant effect on reach rate (chi-square = 65.04, p < 0.0001). 
+Thursday is the worst performing day with only a 33.8% reach rate across 65 calls, while Monday (86.4%) and Wednesday (84.4%) consistently outperform all other days. Shifting call scheduling away from Thursday toward Monday and Wednesday could meaningfully improve the proportion of patients successfully contacted without any additional resource investment.
+
+## Recommendation 3: Prioritise BCS outreach strategy
+BCS has the lowest reach rate of all screening types (52%) and the most pronounced day-of-week effect, with Thursday dropping to just 13% reach rate and Tuesday to 33%. A revised contact strategy for BCS patients specifically, focusing on Monday and Wednesday calls within the 15-40 day window, could produce meaningful improvements for this group.
+
+## Recommendation 4: Review the screening assignment strategy
+Two structural issues in how screenings are assigned suggest opportunities for improvement:
+
+Sequential screening assignment: The analysis shows that patients assigned to a higher number of screenings tend to have lower compliance rates. Assigning a new screening type only after a patient has completed their current one — rather than scheduling multiple screenings simultaneously — could reduce cognitive overload and improve overall compliance. This is particularly relevant given that some patients were eligible for up to 19 screenings within a single year.
+
+Stop reassigning screenings to non-attending patients: 18 patients were assigned the same screening type multiple times without completing it, accounting for 41 repeated incomplete assignments. Continuing to reassign the same screening to patients who repeatedly do not attend is an inefficient use of nurse resources. A more effective approach would be to flag these patients for a different intervention, such as a more in-depth conversation about barriers to attendance, rather than simply rescheduling the same appointment.
+
+## Recommendation 5: Redesign the study for causal inference
+The current dataset does not support firm causal conclusions due to its observational nature and several structural limitations: patients were not randomly assigned to outreach and no-outreach groups, multiple appointments per patient for the same screening type complicate compliance measurement, and the OMW group was too small for statistical analysis (n=6 patients). A randomised controlled experiment assigning patients to outreach and control groups, with controlled call timing, would produce reliable evidence of campaign effectiveness and allow confident business decisions to be made.
+
+## Limitations
+
+- Duplicate records were identified and removed during data cleaning. The original dataset contained 1,988 rows, reduced to 669 after deduplication.
+  The high proportion of duplicates (66%) raises questions about data collection reliability. Possible reasons include: system errors recording the same   appointment multiple times, data export issues from the source system, or multiple data entries by different staff members for the same patient
+  interaction. The root cause should be investigated before the next data collection cycle to ensure data integrity
+- OMW group excluded from all statistical comparisons due to insufficient sample size (n=6 patients), BOL group is overrepresented
+- Multiple appointments per patient for the same screening type complicate patient-level compliance measurement
+- Reached and not-reached groups may differ systematically in motivation or accessibility, there is no information about the assignment strategy within this dataset
+- Sample size of 80 patients limits statistical power; some real effects may exist but be undetectable at this scale
+  
 
 
 
