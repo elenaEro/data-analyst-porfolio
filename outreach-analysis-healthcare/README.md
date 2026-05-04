@@ -117,18 +117,18 @@ Overall, there were 41 cases when a patient was assigned and didn't complete the
 ### How was the outreach designed
 
 To analyse the style of outreach, the days between the outreach call and the screening were calculated for each screening.
-The interval varies from 1 to 351 days (almost a year). 25% were contacted within 2 weeks before the screening, half of the patients were contacted up to 40 days before the screening, and the other half from 40 to 351 days prior. In terms of common sense, it may be worth fixing the interval between last call and the screening date for up to 30-40 days as people tend to forget about the information for such a long time.
+The interval varies from 1 to 351 days (almost a year). 25% were contacted within 2 weeks before the screening, half of the patients were contacted up to 40 days before the screening, and the other half from 40 to 351 days prior. It may be worth fixing the interval between last call and the screening date for up to 30-40 days as people tend to forget about the information for such a long time.
 
 ![Distribution days between call screening](assets/Distribution_days_between_call_screening.png)
 
-A Chi-square test of independence (χ² = 65.04, p < 0.0001) confirms that **the day of the week when patients are contacted** has a statistically significant effect on the **reach rate**.
+A Chi-square test of independence run at the call level (χ² = 65.04, p < 0.0001) found a statistically significant association between day of the week and reach rate. As individual patients contribute multiple calls, the effective sample size is smaller than the raw call count, so this result should be interpreted as indicative rather than precise.
 
 Analysis of the standardised residuals identifies **Thursday and Monday** as the strongest contributors to this effect:
 
 - **Thursday** shows the largest deviation from expected values (residuals: succ_calls = -3.07, unsucc_calls = +4.12), indicating significantly fewer successful calls and more unsuccessful calls than expected. With only a 33.8% reach rate across 65 calls, Thursday is clearly the worst day for outreach.
-- **Monday** shows the opposite pattern (residuals: succ_calls = +2.11, unsucc_calls = -2.84), with a 86.4% reach rate, making it the most effective day for outreach. Both residuals cross the significance threshold of 2.
-- **Wednesday** shows a similar positive pattern to Monday (reach rate 84.4%), with residuals just below the threshold of 2 (1.99 and -2.68), suggesting a strong but marginally significant trend.
-- **Tuesday** shows a negative trend (reach rate 44.4%) with residuals of -1.67 and +2.24 — the unsuccessful calls residual crosses the threshold, indicating more unsuccessful calls than expected.
+- **Monday** shows the opposite pattern (residuals: succ_calls = +2.11, unsucc_calls = -2.84), with a 86.4% reach rate, making it the most effective day for outreach.
+- **Wednesday** shows a similar positive pattern to Monday (reach rate 84.4%), with residuals 1.99 and -2.68. Note that with 14 residuals tested simultaneously, a stricter threshold of approximately |z| > 2.6 would apply under Bonferroni correction. Wednesday's residuals (1.99, -2.68) sit at the boundary and should be treated as a suggestive rather than confirmed finding.
+- **Tuesday** shows a negative trend (reach rate 44.4%) with residuals of -1.67 and +2.24, indicating a trend of more unsuccessful calls than expected.
 - Friday and Saturday show moderate positive reach rates (81.8% and 73.7%) but residuals below 2, so no statistically notable deviation. Sunday has the highest call volume (131 calls) but a moderate reach rate of 59.5%, with residuals close to zero — performing broadly as expected.
 
 ### Reach rate
@@ -152,7 +152,7 @@ To identify which screening types contributed most to this result, standardised 
 
 ### Reach rate by day of the call and the screening type
 
-Zooming into the heatmap on differences in reach rate among different week days and different screening types for BCS specifically:
+Zooming into the heatmap on differences in reach rate among different weekdays and different screening types for BCS specifically:
 Thursday's reach rate drops to just 13% — extremely low
 Tuesday's reach rate is 33% — also notably poor
 
@@ -179,12 +179,16 @@ To evaluate whether nurse outreach influenced full compliance, statistical compa
 Overall comparison across all screening types was run using a Chi-square test on the contingency table of reached/not reached vs compliant/not compliant patients. Second, to account for potential differences between screening types, the same comparison was repeated within each screening type separately (BCS, CBP, COL, EED), with OMW excluded due to insufficient cell counts. Bonferroni correction was applied across the four screening types (adjusted α = 0.0125) to control for multiple comparisons.
 Results: **No statistically significant difference** in full compliance was found between reached and not reached patients, neither at the overall level nor within any individual screening type after Bonferroni correction.
 This is consistent with the compliance rate findings in Section 1 and further supports the conclusion that the current outreach approach did not drive meaningful behavioural change in this dataset.
+A post-hoc **power analysis** revealed that all four screening type subgroups were severely underpowered (power range: 0.17–0.36 at Bonferroni-corrected α = 0.0125) to detect a medium effect (Cohen's w = 0.3) in the outreach compliance comparison. **The null results should therefore be interpreted as inconclusive rather than as evidence of no effect**.
+
 
 ### Did outreach improve compliance?
 
 To answer this question robustly, compliance was measured in four different ways: at the patient-level and at the individual screening appointment level, both as a continuous rate and as a binary fully compliant flag, comparing reached and not reached patients within each screening type. The OMW group was excluded due to a small sample size. Statistical significance was assessed using Chi-square and Mann-Whitney U tests with Bonferroni correction applied across four screening types.
 
-Across all four approaches, no statistically significant difference was found between patients who were reached by the nurse team and those who were not. This consistent result across multiple analytical methods strengthens the conclusion: **the current outreach campaign did not produce a measurable improvement in screening compliance**.
+Across all four approaches, no statistically significant difference was found between patients who were reached by the nurse team and those who weren't.
+
+In this dataset, **no statistically significant association** was found between being reached by the nurse team and screening compliance. Whether outreach would produce a measurable effect in a larger, randomised study remains an open question.
 
 ### Days between last call and screening
 
@@ -199,7 +203,8 @@ Compliance rates by time bin were as follows:
 ![days_between](assets/Days_between_compliance.png)
 
 A Chi-square test found **no statistically significant difference** in compliance across time bins (chi-square = 8.84, p = 0.065). 
-However, the result approaches significance, and the pattern is notable. 
+While this does not meet the conventional significance threshold, the directional pattern is consistent and worth testing in a prospective study with pre-specified call windows.
+
 Patients called **15-40 days** before their screening showed the highest compliance rate (78.7%), with a standardised residual of -2.03 for non-compliant patients. This is the only residual approaching the significance threshold of 2, indicating that this group had meaningfully fewer non-completions than expected.
 
 The 41-90 day group showed the opposite trend, with the lowest compliance rate (60.0%), suggesting that calls made too far in advance may be counterproductive, as patients are likely to forget both the call and the upcoming screening.
@@ -214,7 +219,7 @@ The analysis evaluated the effectiveness of UHHC's nurse outreach campaign acros
 The campaign targeted 80 unique patients, making 435 screening appointments with a total of 280 successful calls (overall reach rate 64.37%).
 Despite the considerable effort invested, the central finding of this analysis is that nurse outreach did not produce a measurable improvement in screening compliance. 
 
-This conclusion holds across four separate analytical approaches: patient-level compliance rate, fully compliant patient flag, screening-level compliance rate, and compliance by screening type. There were no significant outreach uplift. All results were statistically non-significant after Bonferroni correction.
+This conclusion holds across four separate analytical approaches: patient-level compliance rate, fully compliant patient flag, screening-level compliance rate, and compliance by screening type. There was no significant outreach uplift. All results were statistically non-significant after Bonferroni correction.
 
 However, the analysis identified several actionable patterns that suggest the campaign's design, rather than the concept itself, may be limiting its effectiveness.
 
@@ -222,9 +227,9 @@ However, the analysis identified several actionable patterns that suggest the ca
 The strongest signal in the entire dataset is the compliance rate of 78.7% for patients called 15-40 days before their screening, compared to 60-65% for all other time windows. The standardised residual of -2.03 for non-compliant patients in this group is the only result approaching statistical significance in the timing analysis (chi-square = 8.84, p = 0.065).
 Currently, 32% of all calls are made more than 90 days before the screening, far too early to serve as an effective reminder. Restructuring the call scheduling to target the 15-40 day window before each patient's screening date is a low-cost intervention with the strongest evidence base in this dataset.
 
-## Recommendation 2: Avoid Thursday and Tuesday, prioritise Monday and Wednesday for outreach calls
+## Recommendation 2: Avoid Thursday, prioritise Monday for outreach calls. Review the outreach efficiency during the Tuesdays and Wednesdays.
 The day of the week has a statistically significant effect on reach rate (chi-square = 65.04, p < 0.0001). 
-Thursday is the worst performing day with only a 33.8% reach rate across 65 calls, while Monday (86.4%) and Wednesday (84.4%) consistently outperform all other days. Shifting call scheduling away from Thursday toward Monday and Wednesday could meaningfully improve the proportion of patients successfully contacted without any additional resource investment.
+Thursday is the worst-performing day with only a 33.8% reach rate across 65 calls, while Monday (86.4%) consistently outperforms all other days, and Wednesday (84.4%) could also be a good choice for outreach planning. Shifting call scheduling away from Thursday toward Monday and Wednesday could meaningfully improve the proportion of patients successfully contacted without any additional resource investment.
 
 ## Recommendation 3: Prioritise BCS outreach strategy
 BCS has the lowest reach rate of all screening types (52%) and the most pronounced day-of-week effect, with Thursday dropping to just 13% reach rate and Tuesday to 33%. A revised contact strategy for BCS patients specifically, focusing on Monday and Wednesday calls within the 15-40 day window, could produce meaningful improvements for this group.
@@ -236,11 +241,12 @@ Sequential screening assignment: The analysis shows that patients assigned to a 
 
 Stop reassigning screenings to non-attending patients: 18 patients were assigned the same screening type multiple times without completing it, accounting for 41 repeated incomplete assignments. Continuing to reassign the same screening to patients who repeatedly do not attend is an inefficient use of nurse resources. A more effective approach would be to flag these patients for a different intervention, such as a more in-depth conversation about barriers to attendance, rather than simply rescheduling the same appointment.
 
-## Recommendation 5: Redesign the study for causal inference
-The current dataset does not support firm causal conclusions due to its observational nature and several structural limitations: patients were not randomly assigned to outreach and no-outreach groups, multiple appointments per patient for the same screening type complicate compliance measurement, and the OMW group was too small for statistical analysis (n=6 patients). A randomised controlled experiment assigning patients to outreach and control groups, with controlled call timing, would produce reliable evidence of campaign effectiveness and allow confident business decisions to be made.
+## Recommendation 5: Redesign the study for causal inference with an adequate sample size
+The current dataset does not support firm conclusions about outreach effectiveness for two compounding reasons: its observational design and insufficient statistical power.
 
-## Recommendation 6: Review the strategy of motivation for the patients assigned to COL screening
-We see that this group is overrepresented, which could be a flag of the problem with the overall motivation of patients. Evaluating the main resons for that: anxiety/avoidance behaviour, unwillingness to get over unpleasent screening, etc, may help to redesign better strategy to increase the compliance rate of this group.
+On study design: patients were not randomly assigned to outreach and no-outreach groups. Patients who answered the phone may systematically differ from those who did not(in motivation, accessibility, or health literacy). it makes the reached and not-reached groups non-comparable. Any compliance difference between these groups could reflect patient characteristics rather than the effect of the call itself.
+On sample size: a post-hoc power analysis showed that the largest subgroup in the study (COL, n=51) had only 36% power to detect a medium effect at the Bonferroni-corrected significance threshold. The smallest subgroup (EED, n=27) had just 17% power. To achieve the conventional 80% power threshold with a medium effect size and Bonferroni correction across four screening types, a minimum of 124 patients per screening type would be required, approximately 6 times the current smallest group size.
+A redesigned study should include: random assignment of eligible patients to outreach and control groups; a minimum of 124 patients per screening type per group; controlled call timing within the 15–40 day window identified in this analysis; and equal or near-equal splits between outreach and control groups within each screening type to maximise statistical power. This would produce reliable, causal evidence of campaign effectiveness and allow confident business decisions to be made about the outreach programme.
 
 ## Limitations
 
@@ -250,7 +256,7 @@ We see that this group is overrepresented, which could be a flag of the problem 
 - The OMW group was excluded from all statistical comparisons due to insufficient sample size (n=6 patients), the COL group is overrepresented
 - Multiple appointments per patient for the same screening type complicate patient-level compliance measurement
 - Reached and not-reached groups may differ systematically in motivation or accessibility; there is no information about the assignment strategy within this dataset
-- Sample size of 80 patients limits statistical power; some real effects may exist but be undetectable at this scale
+- Sample size of 80 patients limits statistical power. A post-hoc power analysis revealed that all four screening type subgroups were severely underpowered (power range: 0.17– 0.36 at Bonferroni-corrected α = 0.0125) to detect a medium effect (Cohen's w = 0.3) in the outreach compliance comparison. The null results should therefore be interpreted as inconclusive rather than as evidence of no effect — a true effect of moderate size could exist but remain undetectable at this sample size. Additionally, power estimates assume an equal split between reached and not-reached patients within each subgroup; the actual unequal split in this dataset means true power was likely lower than reported.
   
 
 
