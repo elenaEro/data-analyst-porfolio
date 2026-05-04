@@ -65,7 +65,7 @@ Unique values of reached_ind: ['0.0' nan '1.0' '1 and reached']. To standardise 
 **North-star metrics for this project**:
 
 - **Reach rate**: total successful calls(when patient was reached)/total call attempts; this metric will help to evaluate time/money spent on the outreach company.
-- **Outreach Uplift**: the difference in compliance rate between reached and not reached patients;
+- **Outreach Uplift**: the difference in compliance rate between reached and not reached patients(with exclusion from analysis those, who haven't been targeted for the outreach);
 - **Patient-Level Compliance Rate**: all completed screening by patient/total eligible screening for patient; metric ranges from 0 to 1, and we will look at whether different treatments change the compliance rate for different groups of patients.
 - **Fully-compliant patients**(total, percentage); this metric supports the first one and helps to analyse the compliance level on the behavioural level. 
 
@@ -84,7 +84,7 @@ The cases where the screening_date was earlier than the latest_call_date are not
 
 ### How patients were assigned to the screenings
 
-The patients were assigned to different screening types in different proportions: the most significant group consists of 78 patients for colorectal cancer (COL), which is approximately twice as large as the three other groups — bowel cancer (BCS), controlling high blood pressure (CBP), and early elective delivery prevention (EED), each containing around 40 patients. There are only 6 patients in the osteoporosis management in women (OMW) group, which is notably small and may limit the reliability of any conclusions drawn from this group. 
+The patients were assigned to different screening types in different proportions: the most significant group consists of 78 patients for colorectal cancer (COL), which is approximately twice as large as the three other groups — bowel cancer (BCS), controlling high blood pressure (CBP), and early elective delivery prevention (EED), each containing around 40 patients. There are only 6 patients in the osteoporosis management in women (OMW) group, which is notably small and may limit the reliability of any conclusions drawn from this group. The difference in the group range could also reflect the underlying reason for avoiding the screening (colorectal cancer could provoke huge anxiety and thus a tendency to avoid the screening).
 The number of available screenings per patient varies across groups, ranging from approximately 2.17 to 2.78 screenings per patient.
 
 ![patients screenings per screening type](assets/patients_screenings_per_screening_type.png)
@@ -169,19 +169,20 @@ The distribution of compliance rates is bimodal. Patients clustered predominantl
 This discrete pattern is likely driven by two factors identified during data cleaning:
 - Patients were repeatedly scheduled for the same screening types. 
 18 patients had multiple incomplete records for the same screening types, meaning they were assigned the same screening several times and did not attend all appointments. Patients scheduled multiple times but attending only some appointments naturally produce mid-range compliance values around 0.5.
-Patients who completed all their assigned appointments, regardless of how many times they were scheduled, cluster at 1.0, representing fully compliant behaviour.
+- Patients who completed all their assigned appointments, regardless of how many times they were scheduled, cluster at 1.0, representing fully compliant behaviour.
 
 This bimodal distribution was visually confirmed as non-normal, which informed the choice of non-parametric testing for all subsequent statistical comparisons of compliance rates between groups.
 
 ### Reached vs not reached patients:
 
-To evaluate whether nurse outreach influenced full compliance, statistical comparisons were conducted at two 
+To evaluate whether nurse outreach influenced full compliance, statistical comparisons were conducted at two levels.
 Overall comparison across all screening types was run using a Chi-square test on the contingency table of reached/not reached vs compliant/not compliant patients. Second, to account for potential differences between screening types, the same comparison was repeated within each screening type separately (BCS, CBP, COL, EED), with OMW excluded due to insufficient cell counts. Bonferroni correction was applied across the four screening types (adjusted α = 0.0125) to control for multiple comparisons.
-Results: No statistically significant difference in full compliance was found between reached and not reached patients — neither at the overall level nor within any individual screening type after Bonferroni correction. This is consistent with the compliance rate findings in Section 1 and further supports the conclusion that the current outreach approach did not drive meaningful behavioural change in this dataset.
+Results: **No statistically significant difference** in full compliance was found between reached and not reached patients, neither at the overall level nor within any individual screening type after Bonferroni correction.
+This is consistent with the compliance rate findings in Section 1 and further supports the conclusion that the current outreach approach did not drive meaningful behavioural change in this dataset.
 
 ### Did outreach improve compliance?
 
-To answer this question robustly, compliance was measured in four different ways: at patient level and at individual screening appointment level, both as a continuous rate and as a binary fully compliant flag, comparing reached and not reached patients within each screening type. The OMW group was excluded due to small sample size. Statistical significance was assessed using Chi-square and Mann-Whitney U tests with Bonferroni correction applied across four screening types.
+To answer this question robustly, compliance was measured in four different ways: at the patient-level and at the individual screening appointment level, both as a continuous rate and as a binary fully compliant flag, comparing reached and not reached patients within each screening type. The OMW group was excluded due to a small sample size. Statistical significance was assessed using Chi-square and Mann-Whitney U tests with Bonferroni correction applied across four screening types.
 
 Across all four approaches, no statistically significant difference was found between patients who were reached by the nurse team and those who were not. This consistent result across multiple analytical methods strengthens the conclusion: **the current outreach campaign did not produce a measurable improvement in screening compliance**.
 
@@ -199,7 +200,7 @@ Compliance rates by time bin were as follows:
 
 A Chi-square test found **no statistically significant difference** in compliance across time bins (chi-square = 8.84, p = 0.065). 
 However, the result approaches significance, and the pattern is notable. 
-Patients called **15-40 days** before their screening showed the highest compliance rate (78.7%), with a standardised residual of -2.03 for non-compliant patients. Tjis is the only residual approaching the significance threshold of 2, indicating that this group had meaningfully fewer non-completions than expected.
+Patients called **15-40 days** before their screening showed the highest compliance rate (78.7%), with a standardised residual of -2.03 for non-compliant patients. This is the only residual approaching the significance threshold of 2, indicating that this group had meaningfully fewer non-completions than expected.
 
 The 41-90 day group showed the opposite trend, with the lowest compliance rate (60.0%), suggesting that calls made too far in advance may be counterproductive, as patients are likely to forget both the call and the upcoming screening.
 
@@ -237,6 +238,9 @@ Stop reassigning screenings to non-attending patients: 18 patients were assigned
 
 ## Recommendation 5: Redesign the study for causal inference
 The current dataset does not support firm causal conclusions due to its observational nature and several structural limitations: patients were not randomly assigned to outreach and no-outreach groups, multiple appointments per patient for the same screening type complicate compliance measurement, and the OMW group was too small for statistical analysis (n=6 patients). A randomised controlled experiment assigning patients to outreach and control groups, with controlled call timing, would produce reliable evidence of campaign effectiveness and allow confident business decisions to be made.
+
+## Recommendation 6: Review the strategy of motivation for the patients assigned to COL screening
+We see that this group is overrepresented, which could be a flag of the problem with the overall motivation of patients. Evaluating the main resons for that: anxiety/avoidance behaviour, unwillingness to get over unpleasent screening, etc, may help to redesign better strategy to increase the compliance rate of this group.
 
 ## Limitations
 
