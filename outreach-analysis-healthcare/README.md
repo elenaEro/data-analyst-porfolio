@@ -243,9 +243,9 @@ The current dataset does not support firm causal conclusions due to its observat
 - Duplicate records were identified and removed during data cleaning. The original dataset contained 1,988 rows, reduced to 669 after deduplication.
   The high proportion of duplicates (66%) raises questions about data collection reliability. Possible reasons include: system errors recording the same   appointment multiple times, data export issues from the source system, or multiple data entries by different staff members for the same patient
   interaction. The root cause should be investigated before the next data collection cycle to ensure data integrity
-- OMW group excluded from all statistical comparisons due to insufficient sample size (n=6 patients), BOL group is overrepresented
+- The OMW group was excluded from all statistical comparisons due to insufficient sample size (n=6 patients), the COL group is overrepresented
 - Multiple appointments per patient for the same screening type complicate patient-level compliance measurement
-- Reached and not-reached groups may differ systematically in motivation or accessibility, there is no information about the assignment strategy within this dataset
+- Reached and not-reached groups may differ systematically in motivation or accessibility; there is no information about the assignment strategy within this dataset
 - Sample size of 80 patients limits statistical power; some real effects may exist but be undetectable at this scale
   
 
