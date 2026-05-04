@@ -195,7 +195,7 @@ Compliance rates by time bin were as follows:
 41-90 days 60.0%
 90+ days 65.7%
 
-![days_between](assets/Days_between_comliance.png)
+![days_between](assets/Days_between_compliance.png)
 
 A Chi-square test found **no statistically significant difference** in compliance across time bins (chi-square = 8.84, p = 0.065). 
 However, the result approaches significance, and the pattern is notable. 
