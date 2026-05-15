@@ -4,4 +4,6 @@ This repository consists of various projects that showcase my hard skills and st
 The [Excel project](https://github.com/elenaEro/excel-ecommerce-data-cleaning) demonstrates data cleaning and metrics preparation for an e-commerce business.
 Dashboard in Power BI based on it.
 
-The [Python project](https://github.com/elenaEro/data-analyst-porfolio/tree/main/outreach-analysis-healthcare)(Pandas, NumPy, Matplotlib and Seaborn) analyses the design and impact of the outreach campaign on patient compliance.
+The [Python project](https://github.com/elenaEro/data-analyst-porfolio/tree/main/outreach-analysis-healthcare)(Pandas, NumPy, Matplotlib and Seaborn) analyses the design and impact of the outreach campaign on patient compliance. It also demonstrates my statistics knowledge (power analysis, chi square, etc)
+
+The [SQL project](https://github.com/elenaEro/data-analyst-porfolio/tree/main/ecommerce-elt-and-insights) shows skills in data ingecting with python script, validating and cleaning with SQL. EDA, data visualisation with Looker Studio.
