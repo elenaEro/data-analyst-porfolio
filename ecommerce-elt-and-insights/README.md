@@ -217,3 +217,87 @@ significantly enrich this analysis and enable actionable optimisation recommenda
 
 - Investigate zero-conversion high-volume pages. Audit messaging, targeting, and lead qualification criteria for pages generating 40 plus MQLs with no conversions
 - Study the two flagship pages — understand what makes them work and replicate those characteristics across lower-performing pages
+
+## Sales Cycle Analysis
+
+### Baseline Metrics
+
+| Metric | Value |
+|---|---|
+| Minimum | 0 days |
+| Q1 (25th percentile) | 5 days |
+| Median | 14 days |
+| Q3 (75th percentile) | 55 days |
+| Maximum | 427 days |
+| Average | 48.5 days |
+| Won sellers analysed | 841 |
+
+### Distribution Shape
+
+The average sales cycle of 48.5 days is more than three times the median of 14 days, confirming a heavily right-skewed distribution. A small number of deals taking 130 to 427 days to close pulls the average up significantly. Median is used as the primary sales cycle metric throughout this analysis to avoid distortion from outliers.
+
+### Key Observations
+
+50% of won deals close within 14 days, suggesting motivated sellers decide quickly and the onboarding process is relatively frictionless. The interquartile range of 5 to 55 days indicates significant variability that warrants investigation by channel and SDR. One record was excluded due to a data entry error where the won date preceded first contact date.
+For SMB-focused B2B2C marketplaces, a median of 14 days is competitive, reflecting the relatively low complexity of the seller onboarding decision compared to enterprise B2B contracts.
+
+
+## Sales Cycle by Origin
+
+| Origin | Won Sellers | Median Days | Avg Days |
+|---|---|---|---|
+| Display | 6 | 7 | 10.3 |
+| Direct Traffic | 56 | 10 | 31.1 |
+| Unknown | 193 | 11 | 41.9 |
+| Referral | 24 | 13 | 32.5 |
+| Organic Search | 270 | 14 | 50.2 |
+| Paid Search | 195 | 15 | 56.6 |
+| Email | 15 | 21 | 52.2 |
+| Social | 75 | 30 | 61.0 |
+| Other Publicities | 7 | 35 | 25.6 |
+
+## Key Findings
+
+Organic search and paid search account for 55% of all won deals (465 out of 841) but carry the heaviest outlier tail. Their averages of 50.2 and 56.6 days align with the overall Q3 threshold of 55 days, while their medians sit at 14-15 days. A 40-day gap indicating a significant proportion of slow-closing deals within these channels.
+
+Referral shows the tightest distribution with median 13 days and average 32.5 days, a 19-day gap compared to 40 days for search channels. Referral leads close consistently fast with fewer outliers, confirming the pre-qualification effect of trust-based acquisition.
+
+Social is the slowest channel at median 30 days, double the overall median of 14 days. Combined with a 6% MQL to won conversion rate, social attracts low-intent leads that both convert poorly and take longest to close.
+
+Unknown origin closes at median 11 days despite being unattributed, suggesting these are high-intent leads from untracked sources arriving already decided.
+
+Display and other_publicities have insufficient sample sizes (6 and 7 won sellers) and are excluded from conclusions.
+
+## Recommendations
+
+Fix attribution tracking for unknown origin — 193 won sellers closing in 11 days median is likely your most efficient segment, but cannot be actioned without source identification.
+
+Investigate referral scaling: highest closing efficiency across all tracked channels with the tightest distribution. Active referral incentive programmes could yield consistent high-intent leads at low acquisition cost.
+
+Review social strategy: the slowest closing channel with the lowest conversion rate. Improved audience targeting or budget reallocation toward search is warranted.
+
+## SR Performance Analysis
+SR performance was evaluated among won sellers only. Since `sr_id` is not captured for lost MQLs, true conversion rates per SR are unmeasurable. Analysis covers 16 SRs with a minimum of 10 won sellers.
+
+### Key Findings
+
+A correlation of -0.91 between median sales cycle and activation rate is the strongest finding in this section. 
+SRs closing faster consistently produce better activated sellers. The two slowest SRs (median 88 and 148 days) show the lowest activation rates at 22% and 20%.
+
+The activation rate ceiling across all SRs is 56%, with most clustering between 42% and 51%, pointing to a systemic onboarding problem rather than individual SR performance issues.
+
+Average GMV per activated seller ranges from 464 to 6,147, reflecting two distinct seller profiles: high volume, low value and low volume, high value. Cancellation rates are consistently low at 0.0 to 0.05 and are not a differentiating factor between SRs.
+
+### Recommendation
+
+Review qualification criteria for SRs with median sales cycles above 55 days. The -0.91 correlation suggests these reps are progressing hesitant leads to signing rather than disqualifying early, producing sellers who never activate.
+
+### Limitation
+
+Analysis cannot distinguish SR skill from lead quality allocation. A controlled analysis accounting for lead source per SR would be needed to isolate the true SR contribution.
+
+The activation rate ceiling of 56% is consistent across all SRs, meaning the problem is not individual rep performance but a systemic issue in the post-signing journey. 466 won sellers never placed a single order despite signing a contract.
+
+This points to gaps in the onboarding process, seller readiness, or platform adoption support rather than sales quality. Recommended actions include reviewing the onboarding sequence, introducing first-order incentives, and implementing activation checkpoints at 30 and 60 days post-signing.
+
+
